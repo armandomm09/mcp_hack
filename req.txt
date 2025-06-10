@@ -47,3 +47,5 @@ typing-inspection==0.4.1
 urllib3==2.4.0
 uvicorn==0.34.3
 zstandard==0.23.0
+langchain-mcp-adapters
+langgraph

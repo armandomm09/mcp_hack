@@ -1,4 +1,4 @@
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 from langchain_cerebras import ChatCerebras
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
@@ -8,11 +8,11 @@ import asyncio
 import json
 import os
 
-# load_dotenv()
+load_dotenv()
 
 server_params = StdioServerParameters(
-    command="/opt/homebrew/bin/uv",
-    args=["run", "/Users/armando/Progra/ai/hack_mcp/server.py"],
+    command="uv",
+    args=["run", "./server.py"],
 )
 
 
@@ -40,12 +40,10 @@ async def main():
                 max_tokens=10000,
                 timeout=None,
                 max_retries=1,
-                api_key=CEREBRAS_API_KEY,
-                
+                api_key=CEREBRAS_API_KEY
             )
             agent = create_react_agent(
                 llm,
-                max_iterations=1,
                 tools=tools,
                 debug=True,
                 prompt="""You are a helpful travel planner. When the user asks for travel options,
